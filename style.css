@@ -1,0 +1,173 @@
+/* 55mm Thermal Printer Style */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f0f0f0; /* Grey background so you can see the white bill */
+    margin: 0;
+    padding: 10px;
+    -webkit-font-smoothing: antialiased; /* Crisper text */
+}
+
+.bill-container {
+    width: 55mm; /* <-- CRITICAL: Set to printer width */
+    max-width: 55mm;
+    min-height: 100px;
+    background: #ffffff;
+    padding: 3mm;
+    box-sizing: border-box;
+    margin: 0 auto; /* Center the bill on the screen */
+    color: #000;
+    font-size: 12px; /* Small font for thermal printer */
+    line-height: 1.4;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.header {
+    text-align: center;
+}
+.header p {
+    margin: 2px 0;
+}
+.header .bill-title {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Meta */
+.meta-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+/* Dashed Line */
+hr.dashed {
+    border: none;
+    border-top: 1px dashed #000;
+    margin: 5px 0;
+}
+
+/* Items Table */
+#items-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#items-table thead th {
+    text-align: left;
+    border-bottom: 1px dashed #000;
+    padding-bottom: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Column widths */
+#items-table th:nth-child(1), #items-table td:nth-child(1) { width: 10%; } /* SNo */
+#items-table th:nth-child(2), #items-table td:nth-child(2) { width: 20%; text-align: right;} /* Qty */
+#items-table th:nth-child(3), #items-table td:nth-child(3) { width: 35%; text-align: right;} /* Rate */
+#items-table th:nth-child(4), #items-table td:nth-child(4) { width: 40%; text-align: right;} /* Amount */
+
+#items-table tbody td {
+    padding: 3px 0;
+    vertical-align: top;
+}
+
+/* Input fields */
+.item-row input {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+
+    height: 16px;          /* ← Added */
+    line-height: 16px;     /* ← Added */
+
+    border: none;
+    min-width: 3em;
+    background-color: #f0f0f0;
+    text-align: right;
+
+    padding: 0 2px;        /* ← changed from 2px to 0 2px */
+
+    box-sizing: border-box;
+    -moz-appearance: textfield;
+}
+.item-row input:focus {
+    outline: 1px solid #007bff;
+}
+.sizer
+{
+font-family:'Courier New',Courier, monospace;
+font-size:14px;
+padding:2px;
+box-sizing:border-box;
+position:absolute;top:-9999px;
+left: -9999px;
+visibility:hidden;
+white-space:pre;}/* Prevents text*/
+/* Summary */
+.summary {
+    margin: 5px 0;
+}
+.summary-line, .total-line {
+    display: flex;
+    justify-content: space-between;
+}
+.total-line {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Buttons (On-screen only) */
+.button-container {
+    width: 55mm;
+    margin: 10px auto 0 auto;
+}
+#add-item-btn, #print-btn, #save-jpg-btn {
+    width: 100%;
+    border: none;
+    padding: 12px;
+    margin-top: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+#add-item-btn { background-color: #ddd; color: #333; }
+#print-btn { background-color: #007bff; color: white; }
+#save-jpg-btn { background-color: #28a745; color: white; }
+
+
+/* --- PRINT STYLES --- 
+   This prepares it for the "Save as PDF" or
+   a direct (if possible) 55mm print.
+*/
+@media print {
+    @page {
+        size: 55mm auto; /* Set page size */
+        margin: 2mm; /* Small margin */
+    }
+    body {
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+    }
+    .bill-container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        width: 100%; /* Fill the print area */
+    }
+    .no-print {
+        display: none; /* Hides all buttons */
+    }
+    .item-row input {
+        background: none; /* Make input background transparent */
+    }
+}

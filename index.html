@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KG Creations 55mm Bill</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon_new.jpeg">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    </head>
+<body>
+
+    <div class="bill-container" id="bill-to-save">
+        
+        <div class="header">
+            <p><h3>KG CREATIONS</h3>
+            Sarai Harha Varanasi<br>Contact: 7499116099</p>
+            <p class="bill-title"><h4>INVOICE</h4></p>
+        </div>
+
+        <div class="meta-info">
+            <span>Date: <span id="bill-date"></span></span>
+        </div>
+        <hr class="dashed">
+
+        <table id="items-table">
+            <thead>
+                <tr>
+                    <th>SNo</th>
+                    <th>Qty</th>
+                    <th>Rate</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="items-tbody">
+                </tbody>
+        </table>
+        <hr class="dashed">
+
+        <div class="summary">
+            <div class="summary-line">
+                <span>ITEM: <span id="total-items">0</span></span>
+                <span>QTY: <span id="total-qty">0</span></span>
+            </div>
+            
+            <div class="total-line">
+                <strong>TOTAL</strong>
+                <strong>₹ <span id="total-amount">0.00</span></strong>
+            </div>
+        </div>
+        <hr class="dashed">
+
+        <div class="footer" style="display: flex; justify-content: space-around; align-items: center; margin-top: 10px;">
+           <div style="text-align:center;">
+    <p style="margin:0; font-size:14px; font-weight:bold;">THANK YOU</p>
+    <p style="margin:0; font-size:14px; font-weight: bold;">VISIT AGAIN</p>
+</div>
+            
+            <div style="text-align: center;">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=upi%3A%2F%2Fpay%3Fpa%3D7499116099%40kotak%26pn%3DKG%20CREATIONS" 
+                     crossorigin="anonymous" 
+                     alt="UPI QR Code" 
+                     style="width: 55px; height: 55px; margin-bottom: 2px;">
+                <div style="font-size: 9px;">Scan to Pay</div>
+            </div>
+        </div>
+        
+    </div> <div class="button-container no-print">
+        <button id="add-item-btn" class="no-print">+ Add Item</button>
+        <button id="print-btn" class="no-print">Print (Save as PDF)</button>
+        <button id="save-jpg-btn" class="no-print">Save as JPG</button>
+    </div>
+
+    <script src="script.js"></script>
+    <span id="input-sizer"
+class="sizer"></span>
+</body>
+</html>
