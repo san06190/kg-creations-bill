@@ -83,7 +83,7 @@ hr.dashed {
     border: none;
     min-width: 3em;
     background-color: #000000;
-    text-align: middle;
+    text-align: center;
 
     padding: 0 2px;        /* ← changed from 2px to 0 2px */
 
