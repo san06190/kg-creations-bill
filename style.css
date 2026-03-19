@@ -57,7 +57,7 @@ hr.dashed {
     text-align: left;
     border-bottom: 1px dashed #000;
     padding-bottom: 3px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -75,7 +75,7 @@ hr.dashed {
 /* Input fields */
 .item-row input {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
+    font-size: 14px;
 
     height: 16px;          /* ← Added */
     line-height: 16px;     /* ← Added */
