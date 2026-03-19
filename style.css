@@ -16,7 +16,7 @@ body {
     box-sizing: border-box;
     margin: 0 auto; /* Center the bill on the screen */
     color: #000;
-    font-size: 12px; /* Small font for thermal printer */
+    font-size: 14px; /* Small font for thermal printer */
     line-height: 1.4;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
