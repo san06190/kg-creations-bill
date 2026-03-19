@@ -92,25 +92,37 @@ document.addEventListener("DOMContentLoaded", () => {
         window.print();
     }
 
-    // --- Function to save the bill as a JPG ---
+        // --- ENHANCED SAVE FUNCTION FOR THERMAL PRINTERS ---
     function saveBillAsJpg() {
         const billElement = document.getElementById("bill-to-save");
+        
+        // Force high-contrast and sharp rendering before capturing
         billElement.style.backgroundColor = '#ffffff';
+        billElement.style.imageRendering = 'pixelated'; 
 
         html2canvas(billElement, {
-            scale: 4,
-            useCORS: true
+            scale: 4,               // High scale (4x) provides the sharpest edges for thermal heads
+            useCORS: true,          // Essential for the external QR code API image
+            logging: false,
+            backgroundColor: "#ffffff"
         }).then(canvas => {
-            const imgData = canvas.toDataURL("image/jpeg", 1.0);
+            // Quality 1.0 (Maximum) eliminates JPEG "smudge" artifacts around the QR code
+            const imgData = canvas.toDataURL("image/jpeg", 1.0); 
+            
             const link = document.createElement('a');
             const now = new Date();
-            const filename = `KG-Bill-${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}-${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}.jpg`;
+            const filename = `KG-Bill-${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}.jpg`;
+            
             link.download = filename;
             link.href = imgData;
             link.click();
+            
+            // Revert styles for the UI
             billElement.style.backgroundColor = '';
+            billElement.style.imageRendering = '';
         });
     }
+
 
     // --- Event Listeners ---
     addItemBtn.addEventListener("click", addNewRow);
